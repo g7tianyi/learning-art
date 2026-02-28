@@ -124,6 +124,7 @@ function generateMockArtworks() {
         period: 'Modern',
         movement: 'Cubism',
         wikiUrl: 'https://en.wikipedia.org/wiki/Guernica_(Picasso)',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/1280px-PicassoGuernica.jpg',
         scores: {
           historicalSignificance: 10,
           culturalImpact: 10,
@@ -147,6 +148,7 @@ function generateMockArtworks() {
         period: 'Modern',
         movement: 'Realism',
         wikiUrl: 'https://en.wikipedia.org/wiki/The_Thinker',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/The_Thinker%2C_Rodin.jpg/800px-The_Thinker%2C_Rodin.jpg',
         scores: {
           historicalSignificance: 9,
           culturalImpact: 10,
@@ -170,6 +172,7 @@ function generateMockArtworks() {
         period: 'Renaissance',
         movement: 'Renaissance',
         wikiUrl: 'https://en.wikipedia.org/wiki/David_(Michelangelo)',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/%27David%27_by_Michelangelo_JBU0001.JPG/800px-%27David%27_by_Michelangelo_JBU0001.JPG',
         scores: {
           historicalSignificance: 10,
           culturalImpact: 10,
@@ -192,6 +195,7 @@ function generateMockArtworks() {
         period: 'Mughal',
         movement: 'Mughal architecture',
         wikiUrl: 'https://en.wikipedia.org/wiki/Taj_Mahal',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Taj_Mahal%2C_Agra%2C_India_edit3.jpg/1280px-Taj_Mahal%2C_Agra%2C_India_edit3.jpg',
         scores: {
           historicalSignificance: 10,
           culturalImpact: 10,
@@ -213,6 +217,7 @@ function generateMockArtworks() {
         period: 'Modern',
         movement: 'Organic architecture',
         wikiUrl: 'https://en.wikipedia.org/wiki/Fallingwater',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Wrightfallingwater.jpg/1280px-Wrightfallingwater.jpg',
         scores: {
           historicalSignificance: 9,
           culturalImpact: 9,
@@ -236,6 +241,7 @@ function generateMockArtworks() {
         period: 'Modern',
         movement: 'Surrealism',
         wikiUrl: 'https://en.wikipedia.org/wiki/The_Persistence_of_Memory',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/The_Persistence_of_Memory.jpg/1280px-The_Persistence_of_Memory.jpg',
         scores: {
           historicalSignificance: 9,
           culturalImpact: 10,
@@ -259,6 +265,7 @@ function generateMockArtworks() {
         period: 'Renaissance',
         movement: 'Renaissance',
         wikiUrl: 'https://en.wikipedia.org/wiki/The_Last_Supper_(Leonardo)',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/%C3%9Altima_Cena_-_Da_Vinci_5.jpg/1280px-%C3%9Altima_Cena_-_Da_Vinci_5.jpg',
         scores: {
           historicalSignificance: 10,
           culturalImpact: 10,
