@@ -1,0 +1,41 @@
+{
+  "name": "learning-art",
+  "version": "0.1.0",
+  "description": "Local-first web application for memorizing major artworks with multi-dimensional commentary",
+  "type": "module",
+  "scripts": {
+    "migrate": "tsx scripts/migrate.ts",
+    "select-artworks": "tsx scripts/select_artworks.ts",
+    "load-artworks": "tsx scripts/load_artworks.ts",
+    "download-images": "tsx scripts/download_images.ts",
+    "generate-commentary": "tsx scripts/generate_commentary.ts",
+    "dev:web": "cd web && npm run dev",
+    "build:web": "cd web && npm run build",
+    "start:web": "cd web && npm start",
+    "lint:web": "cd web && npm run lint",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "art",
+    "learning",
+    "spaced-repetition",
+    "commentary",
+    "sqlite",
+    "nextjs"
+  ],
+  "author": "Learning Art Project",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^20.16.16",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "dotenv": "^16.4.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
