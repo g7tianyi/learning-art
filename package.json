@@ -33,7 +33,8 @@
   },
   "dependencies": {
     "better-sqlite3": "^11.8.1",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "node-fetch": "^3.3.2"
   },
   "engines": {
     "node": ">=18.0.0"
