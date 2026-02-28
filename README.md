@@ -55,6 +55,16 @@ cp .env.example .env
 # Edit .env and add your GEMINI_API_KEY
 ```
 
+**Or use Make:**
+
+```bash
+# Install dependencies
+make install
+
+# Quick start (install + migrate + run)
+make start
+```
+
 ### Database Setup
 
 ```bash
@@ -65,6 +75,13 @@ npx tsx scripts/migrate.ts
 npx tsx scripts/load_artworks.ts
 ```
 
+**Or use Make:**
+
+```bash
+make migrate
+make load
+```
+
 ### Run the Web App
 
 ```bash
@@ -72,7 +89,27 @@ cd web
 npm run dev
 ```
 
+**Or use Make:**
+
+```bash
+make run
+```
+
 Open [http://localhost:3000](http://localhost:3000) to see the application.
+
+### Development Commands (Makefile)
+
+For convenience, a Makefile is provided with common development tasks:
+
+```bash
+make help        # Show all available commands
+make test        # Run all tests (unit + type check + lint)
+make run         # Start development server
+make build       # Build for production
+make clean       # Remove build artifacts
+```
+
+See `make help` for the complete list of commands.
 
 ## Usage
 
