@@ -85,36 +85,50 @@ export async function callGemini(
     }
   };
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(requestBody)
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 30000); // 30s timeout
 
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`Gemini API error (${response.status}): ${errorText}`);
-  }
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody),
+      signal: controller.signal
+    });
 
-  const data = await response.json();
+    clearTimeout(timeout);
 
-  // Extract content from Gemini response format
-  const content = data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-  if (!content) {
-    throw new Error('No content in Gemini response');
-  }
-
-  return {
-    content,
-    model: `gemini-1.5-pro`,
-    usage: {
-      inputTokens: data.usageMetadata?.promptTokenCount || 0,
-      outputTokens: data.usageMetadata?.candidatesTokenCount || 0
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Gemini API error (${response.status}): ${errorText}`);
     }
-  };
+
+    const data = await response.json();
+
+    // Extract content from Gemini response format
+    const content = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!content) {
+      throw new Error('No content in Gemini response');
+    }
+
+    return {
+      content,
+      model: `gemini-1.5-pro`,
+      usage: {
+        inputTokens: data.usageMetadata?.promptTokenCount || 0,
+        outputTokens: data.usageMetadata?.candidatesTokenCount || 0
+      }
+    };
+  } catch (err) {
+    clearTimeout(timeout);
+    if ((err as any).name === 'AbortError') {
+      throw new Error('Gemini API request timed out after 30 seconds');
+    }
+    throw err;
+  }
 }
 
 // ============================================================================
