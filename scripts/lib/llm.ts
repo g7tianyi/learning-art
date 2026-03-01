@@ -34,7 +34,8 @@ export interface LLMOptions {
 // ============================================================================
 
 const GEMINI_API_KEY = process.env.GEMINI_KEY;
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models';
+// Updated to v1 API endpoint (v1beta deprecated for Gemini 2.5+)
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models';
 
 if (!GEMINI_API_KEY) {
   console.warn('[WARN] GEMINI_KEY not found in .env file');
@@ -70,7 +71,8 @@ export async function callGemini(
     ? `${systemPrompt}\n\n${prompt}`
     : prompt;
 
-  const model = 'gemini-1.5-pro';
+  // Use Gemini 2.5 Flash (Gemini 1.5 models retired in 2026)
+  const model = 'gemini-2.5-flash';
   const url = `${GEMINI_API_URL}/${model}:generateContent?key=${GEMINI_API_KEY}`;
 
   const requestBody = {
@@ -116,7 +118,7 @@ export async function callGemini(
 
     return {
       content,
-      model: `gemini-1.5-pro`,
+      model: `gemini-2.5-flash`,
       usage: {
         inputTokens: data.usageMetadata?.promptTokenCount || 0,
         outputTokens: data.usageMetadata?.candidatesTokenCount || 0
