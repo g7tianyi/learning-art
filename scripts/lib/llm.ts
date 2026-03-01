@@ -6,9 +6,18 @@
  */
 
 import * as dotenv from 'dotenv';
-import fetch from 'node-fetch';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { ProxyAgent } from 'undici';
 
 dotenv.config();
+
+// Configure proxy for accessing Google API (if needed)
+const PROXY_URL = process.env.HTTP_PROXY || process.env.HTTPS_PROXY;
+if (PROXY_URL) {
+  const proxyAgent = new ProxyAgent(PROXY_URL);
+  (global as any).dispatcher = proxyAgent;
+  console.log(`[LLM] Using proxy: ${PROXY_URL}`);
+}
 
 // ============================================================================
 // Types
@@ -34,19 +43,20 @@ export interface LLMOptions {
 // ============================================================================
 
 const GEMINI_API_KEY = process.env.GEMINI_KEY;
-// Updated to v1 API endpoint (v1beta deprecated for Gemini 2.5+)
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models';
 
 if (!GEMINI_API_KEY) {
   console.warn('[WARN] GEMINI_KEY not found in .env file');
 }
+
+// Initialize Gemini client
+const genAI = GEMINI_API_KEY ? new GoogleGenerativeAI(GEMINI_API_KEY) : null;
 
 // ============================================================================
 // Gemini API Client
 // ============================================================================
 
 /**
- * Call Gemini API
+ * Call Gemini API using official SDK
  *
  * @param prompt - User prompt
  * @param options - LLM options (temperature, max tokens, etc.)
@@ -56,7 +66,7 @@ export async function callGemini(
   prompt: string,
   options: LLMOptions = {}
 ): Promise<LLMResponse> {
-  if (!GEMINI_API_KEY) {
+  if (!genAI) {
     throw new Error('GEMINI_KEY not configured in .env file');
   }
 
@@ -66,51 +76,26 @@ export async function callGemini(
     systemPrompt
   } = options;
 
-  // Build full prompt with system message if provided
-  const fullPrompt = systemPrompt
-    ? `${systemPrompt}\n\n${prompt}`
-    : prompt;
-
-  // Use Gemini 2.5 Flash (Gemini 1.5 models retired in 2026)
-  const model = 'gemini-2.5-flash';
-  const url = `${GEMINI_API_URL}/${model}:generateContent?key=${GEMINI_API_KEY}`;
-
-  const requestBody = {
-    contents: [{
-      parts: [{ text: fullPrompt }]
-    }],
+  // Use Gemini Pro (stable model)
+  const model = genAI.getGenerativeModel({
+    model: 'gemini-pro',
     generationConfig: {
       temperature,
       maxOutputTokens: maxTokens,
       topP: 0.95,
       topK: 40
     }
-  };
+  });
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30000); // 30s timeout
+  // Build full prompt with system message if provided
+  const fullPrompt = systemPrompt
+    ? `${systemPrompt}\n\n${prompt}`
+    : prompt;
 
   try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(requestBody),
-      signal: controller.signal
-    });
-
-    clearTimeout(timeout);
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Gemini API error (${response.status}): ${errorText}`);
-    }
-
-    const data = await response.json();
-
-    // Extract content from Gemini response format
-    const content = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const result = await model.generateContent(fullPrompt);
+    const response = result.response;
+    const content = response.text();
 
     if (!content) {
       throw new Error('No content in Gemini response');
@@ -118,18 +103,14 @@ export async function callGemini(
 
     return {
       content,
-      model: `gemini-2.5-flash`,
+      model: 'gemini-pro',
       usage: {
-        inputTokens: data.usageMetadata?.promptTokenCount || 0,
-        outputTokens: data.usageMetadata?.candidatesTokenCount || 0
+        inputTokens: response.usageMetadata?.promptTokenCount || 0,
+        outputTokens: response.usageMetadata?.candidatesTokenCount || 0
       }
     };
   } catch (err) {
-    clearTimeout(timeout);
-    if ((err as any).name === 'AbortError') {
-      throw new Error('Gemini API request timed out after 30 seconds');
-    }
-    throw err;
+    throw new Error(`Gemini API error: ${(err as Error).message}`);
   }
 }
 
