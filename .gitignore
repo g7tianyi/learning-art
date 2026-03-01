@@ -16,3 +16,5 @@ data/
 # Web build artifacts
 web/.next/
 web/out/
+
+worklogs
