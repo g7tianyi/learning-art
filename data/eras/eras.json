@@ -1,0 +1,54 @@
+{
+  "eras": [
+    {
+      "id": "renaissance",
+      "name": "Renaissance",
+      "slug": "renaissance",
+      "startYear": 1400,
+      "endYear": 1600,
+      "description": "European rebirth of classical learning and art, emphasizing humanism, perspective, and naturalism.",
+      "introductionPath": "data/eras/renaissance.md",
+      "color": "#D4AF37"
+    },
+    {
+      "id": "mughal-india",
+      "name": "Mughal India",
+      "slug": "mughal-india",
+      "startYear": 1526,
+      "endYear": 1857,
+      "description": "Islamic art and architecture flourishing under the Mughal Empire in South Asia.",
+      "introductionPath": "data/eras/mughal-india.md",
+      "color": "#9370DB"
+    },
+    {
+      "id": "edo-japan",
+      "name": "Edo Period Japan",
+      "slug": "edo-japan",
+      "startYear": 1603,
+      "endYear": 1868,
+      "description": "Japanese art during the Tokugawa shogunate, featuring ukiyo-e woodblock prints and cultural refinement.",
+      "introductionPath": "data/eras/edo-japan.md",
+      "color": "#DC143C"
+    },
+    {
+      "id": "impressionism-post-impressionism",
+      "name": "Impressionism & Post-Impressionism",
+      "slug": "impressionism-post-impressionism",
+      "startYear": 1860,
+      "endYear": 1910,
+      "description": "Revolutionary movements breaking from academic tradition, emphasizing light, color, and emotional expression.",
+      "introductionPath": "data/eras/impressionism-post-impressionism.md",
+      "color": "#4682B4"
+    },
+    {
+      "id": "modern",
+      "name": "Modern Art",
+      "slug": "modern",
+      "startYear": 1900,
+      "endYear": 1970,
+      "description": "Radical experimentation in form, technique, and concept, from Cubism to Abstract Expressionism.",
+      "introductionPath": "data/eras/modern.md",
+      "color": "#FF6347"
+    }
+  ]
+}
