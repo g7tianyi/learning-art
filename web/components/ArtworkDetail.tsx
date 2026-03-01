@@ -1,9 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useKeyboardShortcuts } from '@/lib/hooks/useKeyboardShortcuts';
+import ImageUpload from '@/components/ImageUpload';
 import type { Artwork } from '@/lib/db';
 
 interface ArtworkDetailProps {
@@ -14,6 +16,10 @@ interface ArtworkDetailProps {
 
 export default function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDetailProps) {
   const router = useRouter();
+  const [localImagePath, setLocalImagePath] = useState(artwork.imagePath);
+
+  // Determine which image to display (local takes priority)
+  const displayImage = localImagePath || artwork.imageUrl;
 
   // Enable keyboard shortcuts for prev/next navigation
   useKeyboardShortcuts({
@@ -53,16 +59,17 @@ export default function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: Art
         {/* Artwork */}
         <div className="grid lg:grid-cols-2 gap-12 mb-12">
           {/* Image */}
-          <div>
-            {artwork.imageUrl ? (
+          <div className="space-y-6">
+            {displayImage ? (
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src={artwork.imageUrl}
+                  src={displayImage}
                   alt={artwork.title}
                   fill
                   className="object-contain"
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  key={displayImage} // Force re-render when image changes
                 />
               </div>
             ) : (
@@ -72,6 +79,26 @@ export default function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: Art
                 {artwork.category === 'architecture' && '🏛️'}
               </div>
             )}
+
+            {/* Image Upload */}
+            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
+              <h3 className="font-semibold mb-3 text-gray-700 dark:text-gray-300">
+                Local Image Upload
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                {localImagePath
+                  ? 'Using local image. You can replace or delete it.'
+                  : 'Upload a local image for faster, offline-accessible viewing.'}
+              </p>
+              <ImageUpload
+                artworkId={artwork.id}
+                currentImagePath={localImagePath}
+                onUploadSuccess={(path) => {
+                  setLocalImagePath(path || undefined);
+                  router.refresh();
+                }}
+              />
+            </div>
           </div>
 
           {/* Metadata */}
