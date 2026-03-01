@@ -45,38 +45,51 @@ def get_category_suggestions(category: str, existing_artists: set, batch_num: in
         "painting": [
             "Consider: Byzantine mosaics, Persian miniatures, Japanese woodblock prints, African masks/paintings",
             "Explore: Mughal court paintings, Chinese landscape scrolls, Aboriginal dot paintings",
-            "Include: Women artists (Gentile chi, Sofonisba Anguissola, Judith Leyster, Mary Cassatt, Georgia O'Keeffe)",
-            "Add: Latin American muralists (Orozco, Siqueiros), African American artists (Bearden, Basquiat)",
+            "Include: Women artists (Artemisia Gentileschi, Sofonisba Anguissola, Judith Leyster, Mary Cassatt, Georgia O'Keeffe)",
+            "Add: Latin American muralists (Orozco, Siqueiros), African American artists (Bearden, Basquiat, Jacob Lawrence)",
             "Focus on: Ancient Egyptian tomb paintings, Roman frescoes, Medieval illuminated manuscripts",
-            "Consider: Dutch still lifes, Spanish Baroque (Zurbarán, Ribera), Flemish landscapes",
-            "Explore: Russian avant-garde (Malevich, Kandinsky, Chagall), German Expressionism",
-            "Include: Asian contemporary (Yoshitomo Nara, Yayoi Kusama, Liu Xiaodong)",
-            "Add: Indigenous Australian, Native American ledger art, Caribbean artists",
-            "Focus on: Symbolism (Moreau, Redon), Pre-Raphaelites, Art Nouveau"
+            "Consider: Dutch Golden Age (Vermeer, Hals, Steen), Spanish Baroque (Zurbarán, Ribera), Flemish landscapes",
+            "Explore: Russian avant-garde (Malevich, Kandinsky, Chagall), German Expressionism (Kirchner, Nolde)",
+            "Include: Asian contemporary (Yoshitomo Nara, Yayoi Kusama, Liu Xiaodong), Korean Dansaekhwa",
+            "Add: Indigenous Australian (Emily Kame Kngwarreye), Native American ledger art, Caribbean (Wifredo Lam)",
+            "Focus on: Symbolism (Moreau, Redon), Pre-Raphaelites (Rossetti, Burne-Jones), Art Nouveau (Mucha, Klimt)",
+            "Try: Northern Renaissance (Bosch, Bruegel), Venetian (Titian, Tintoretto), Mannerism (Parmigianino)",
+            "Add: Rococo (Watteau, Boucher), American Scene (Hopper, Wood), Mexican Modernism (Tamayo, Kahlo)",
+            "Explore: Fauvism (Vlaminck, Derain), Orphism (Delaunay), Vorticism (Wyndham Lewis)",
+            "Include: Harlem Renaissance (Aaron Douglas), Socialist Realism (Deineka), Metaphysical (de Chirico)",
+            "Focus on: Color Field (Rothko, Newman, Still), Hard-Edge (Ellsworth Kelly), Op Art (Bridget Riley)"
         ],
         "sculpture": [
-            "Consider: Ancient Greek/Roman statues, Chinese terracotta, African bronze heads (Benin, Ife)",
-            "Explore: Buddhist statues (Gandhara, Chinese, Japanese), Hindu temple sculpture",
-            "Include: Renaissance (Verrocchio, Cellini), Baroque (Algardi, Puget), Neoclassical (Thorvaldsen)",
-            "Add: Modern abstract (Arp, Noguchi, Smith), Minimalist (Judd, Andre, LeWitt)",
-            "Focus on: Assyrian reliefs, Egyptian sphinxes, Olmec colossal heads",
-            "Consider: Medieval reliquaries, Gothic gargoyles, Romanesque tympanum",
-            "Explore: Contemporary installations (Kapoor, Turrell, Eliasson)",
-            "Include: Women sculptors (Hepworth, Nevelson, Bourgeois, Hesse)",
-            "Add: Indigenous Pacific (Moai, tiki), Pre-Columbian (Maya stelae, Aztec calendar)",
-            "Focus on: Art Deco (Brancusi variations), Socialist Realism, Kinetic sculpture"
+            "Consider: Ancient Greek/Roman statues (Venus de Milo, Discobolus), Chinese terracotta, African bronze (Benin, Ife)",
+            "Explore: Buddhist statues (Gandhara, Longmen Caves, Kamakura), Hindu temple sculpture (Khajuraho, Ellora)",
+            "Include: Renaissance (Verrocchio, Cellini, Giambologna), Baroque (Algardi, Puget, Duquesnoy), Neoclassical (Thorvaldsen, Canova)",
+            "Add: Modern abstract (Arp, Noguchi, David Smith, Anthony Caro), Minimalist (Judd, Andre, LeWitt)",
+            "Focus on: Assyrian winged bulls, Egyptian sphinxes/Ka statues, Olmec colossal heads",
+            "Consider: Medieval reliquaries, Romanesque tympanum (Moissac, Autun), Gothic portals (Chartres)",
+            "Explore: Contemporary installations (Kapoor, Turrell, Eliasson), Land Art (Smithson, Heizer)",
+            "Include: Women sculptors (Hepworth, Nevelson, Bourgeois, Hesse, Claudel)",
+            "Add: Pacific (Easter Island Moai, Maori meeting houses), Pre-Columbian (Maya stelae, Aztec Sun Stone)",
+            "Focus on: Constructivism (Tatlin, Gabo), Futurism (Boccioni), Surrealism (Giacometti, Miro)",
+            "Try: Ancient Near East (Sumerian votive), Cycladic idols, Benin bronzes, Yoruba ibeji",
+            "Add: Rococo (Clodion), Romantic (Rude, Barye), Realist (Carpeaux, Dalou)",
+            "Explore: Pop Art (Oldenburg, Segal), Fluxus (Beuys), Process Art (Serra, Morris)",
+            "Include: African contemporary (El Anatsui), Latin American (Botero), Asian (Xu Bing)"
         ],
         "architecture": [
-            "Consider: Ancient temples (Greek, Roman, Egyptian, Mesopotamian)",
-            "Explore: Islamic mosques (Dome of Rock, Alhambra, Süleymaniye), Buddhist stupas/pagodas",
-            "Include: Gothic cathedrals (Notre-Dame, Chartres, Cologne), Romanesque churches",
-            "Add: Hindu temples (Angkor Wat, Brihadeeswarar, Khajuraho), Japanese shrines (Itsukushima, Hōryū-ji)",
-            "Focus on: Renaissance palaces (Uffizi, Doge's), Baroque churches (Sant'Andrea, Les Invalides)",
-            "Consider: Chinese Forbidden City halls, Japanese castles (Himeji, Osaka)",
-            "Explore: Modern masterpieces (Gropius Bauhaus, Mies Barcelona, Aalto Paimio Sanatorium)",
-            "Include: Brutalist (Barbican, Habitat 67), Postmodern (Piazza d'Italia, Portland Building)",
-            "Add: Contemporary (Calatrava, Piano, Koolhaas, Hadid), Sustainable design",
-            "Focus on: Pre-Columbian (Tikal, Teotihuacan), African (Great Zimbabwe, Lalibela)"
+            "Consider: Ancient temples (Parthenon, Pantheon, Karnak, Ziggurats of Ur)",
+            "Explore: Islamic architecture (Dome of Rock, Alhambra, Süleymaniye, Great Mosque of Kairouan), Buddhist stupas (Borobudur, Shwedagon)",
+            "Include: Gothic cathedrals (Reims, Amiens, Cologne, Salisbury), Romanesque (Cluny, Pisa, Durham)",
+            "Add: Hindu temples (Angkor Wat, Brihadeeswarar, Khajuraho, Konark), Japanese shrines (Itsukushima, Ise, Byōdō-in)",
+            "Focus on: Renaissance (Palazzo Medici, Palazzo Farnese, Villa Rotonda), Baroque (Versailles Chapel, Würzburg Residence)",
+            "Consider: Chinese architecture (Temple of Heaven, Summer Palace), Japanese castles (Himeji, Matsumoto, Osaka)",
+            "Explore: Art Nouveau (Casa Batlló, Victor Horta houses), Art Deco (Chrysler, Empire State, Hoover Dam)",
+            "Include: Modernism (Bauhaus, Villa Tugendhat, Johnson Glass House), International Style (UN Headquarters, Lever House)",
+            "Add: Brutalism (National Theatre London, Barbican, Habitat 67, Boston City Hall), High-Tech (Pompidou, Lloyd's)",
+            "Focus on: Pre-Columbian (Chichen Itza, Machu Picchu, Teotihuacan, Palenque), African (Great Zimbabwe, Lalibela churches)",
+            "Try: Byzantine (Hagia Sophia variations), Romanesque (St. Sernin Toulouse), Islamic (Cordoba Mosque, Alhambra)",
+            "Add: Neoclassical (Monticello, Brandenburg Gate), Beaux-Arts (Paris Opera, Grand Central)",
+            "Explore: Deconstructivism (Guggenheim Bilbao already exists, try: Vitra Fire Station, Jewish Museum Berlin)",
+            "Include: Contemporary sustainable (Bosco Verticale, Edge Amsterdam), Parametric (Beijing National Stadium, Soumaya Museum)"
         ]
     }
 
@@ -125,16 +138,23 @@ def build_enhanced_prompt(category: str, count: int, existing_artworks: list, ba
 
     return f"""You are an art history expert curator. Generate exactly {count} UNIQUE {category}s that are NOT already in our collection.
 
-**BATCH #{batch_num + 1} - Focus on VARIETY and UNIQUENESS**
+**BATCH #{batch_num + 1} - Focus on MAXIMUM VARIETY and UNIQUENESS**
 
-**Works already in collection (DO NOT REPEAT ANY):**
+**CRITICAL:** We already have {len(existing_in_cat)} {category}s. DO NOT repeat ANY works below:
 {existing_str}
 
-**IMPORTANT:** We have {len(existing_in_cat)} {category}s already. You MUST suggest completely different works.
+**STRATEGY:** Prioritize LESSER-KNOWN canonical works, not just famous masterpieces.
+Think: second-tier artists from each period, regional variations, underrepresented cultures.
 {region_guidance}{period_guidance}
 
-**SPECIFIC SUGGESTIONS FOR THIS BATCH:**
+**SPECIFIC SUGGESTIONS FOR THIS BATCH (USE THESE EXACT SUGGESTIONS):**
 {suggestions}
+
+**DIVERSITY MANDATE:**
+- Each batch must include works from at least 5 different countries
+- Include at least 2 non-Western works per batch of 10
+- Include at least 1 woman artist (for painting/sculpture batches)
+- Spread across at least 4 different time periods
 
 **Selection Criteria (ranked):**
 1. Historical significance (watershed moments, movement-defining)
@@ -271,7 +291,8 @@ def generate_batch(model: genai.GenerativeModel, category: str, count: int, exis
 def generate_category(model: genai.GenerativeModel, category: str, target: int, existing: list) -> list:
     new_artworks = []
     attempts = 0
-    max_attempts = (target // BATCH_SIZE) + 10  # Increased max attempts since batch size is smaller
+    consecutive_low_yield = 0  # Track if we're getting too many duplicates
+    max_attempts = (target // BATCH_SIZE) + 20  # More attempts allowed
 
     print(f"\nGenerating {target} {category}s...")
     print(f"Existing {category}s: {len([a for a in existing if a.get('category') == category])}")
@@ -280,8 +301,11 @@ def generate_category(model: genai.GenerativeModel, category: str, target: int, 
     while len(new_artworks) < target and attempts < max_attempts:
         attempts += 1
         remaining = target - len(new_artworks)
-        # Request batch size or remaining, whichever is smaller (plus 2 buffer for dupes)
-        batch_size = min(BATCH_SIZE, remaining + 2)  
+
+        # Adaptive batch sizing - request MORE to compensate for duplicates
+        # As we get more works, we need to ask for more to account for likely duplicates
+        duplicate_buffer = min(5, attempts // 3)  # Increase buffer as we go
+        batch_size = min(BATCH_SIZE + duplicate_buffer, remaining + 5)  
 
         try:
             batch = generate_batch(
@@ -292,13 +316,27 @@ def generate_category(model: genai.GenerativeModel, category: str, target: int, 
                 batch_num=attempts - 1  # Pass batch number for variety
             )
 
+            # Track yield quality
+            yield_ratio = len(batch) / batch_size if batch_size > 0 else 0
+
+            if yield_ratio < 0.5:  # Less than 50% unique
+                consecutive_low_yield += 1
+                print(f"  ⚠️  Low unique yield: {len(batch)}/{batch_size} ({yield_ratio*100:.1f}%)")
+            else:
+                consecutive_low_yield = 0
+
             # Add what we need
             to_add = batch[:remaining]
             new_artworks.extend(to_add)
 
-            print(f"  Progress: {len(new_artworks)}/{target} {category}s completed")
+            print(f"  Progress: {len(new_artworks)}/{target} {category}s completed ({len(batch)} unique from batch)")
 
-            if len(new_artworks) < target:
+            # If we're stuck with low yields, inject more specific guidance
+            if consecutive_low_yield >= 3:
+                print(f"  🔄 Adjusting strategy due to high duplicate rate...")
+                consecutive_low_yield = 0  # Reset counter
+                time.sleep(DELAY_SECONDS * 2)  # Longer wait before retry
+            elif len(new_artworks) < target:
                 print(f"  Waiting {DELAY_SECONDS}s before next batch...\n")
                 time.sleep(DELAY_SECONDS)
 
