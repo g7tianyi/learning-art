@@ -24,9 +24,9 @@ export default function BrowsePage() {
               <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
                 {/* Image */}
                 <div className="relative aspect-[4/3] bg-gray-100 dark:bg-gray-700">
-                  {artwork.imageUrl ? (
+                  {(artwork.imagePath || artwork.imageUrl) ? (
                     <Image
-                      src={artwork.imageUrl}
+                      src={artwork.imagePath || artwork.imageUrl!}
                       alt={artwork.title}
                       fill
                       className="object-cover"
