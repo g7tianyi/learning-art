@@ -11,6 +11,7 @@ Learning Art helps you systematically study and remember the world's greatest ar
 ## Features
 
 - **Curated Collection**: LLM-selected artworks based on historical significance, cultural impact, and aesthetic value
+- **Timeline View**: Explore artworks chronologically through art historical eras (Renaissance, Modern Art, etc.) with rich contextual introductions
 - **Smart Learning**: SM-2 spaced repetition algorithm adapts to your memory for optimal retention
 - **Multi-Dimensional Commentary**: 6-dimension analysis covering:
   - Art & Technique - Visual analysis and formal elements
@@ -19,6 +20,7 @@ Learning Art helps you systematically study and remember the world's greatest ar
   - Economics - Patronage, sales, and market value
   - Psychology - Artist's state and viewer response
   - Philosophy - Existential themes and aesthetic questions
+- **Image Upload**: Upload local images for artworks to ensure fast, offline-accessible viewing
 - **Wabi-Sabi Aesthetic**: Minimalist, calm design with natural colors and generous whitespace
 - **Keyboard-First**: Comprehensive keyboard shortcuts for fast navigation
 - **Fully Accessible**: WCAG 2.1 AA compliant with screen reader support

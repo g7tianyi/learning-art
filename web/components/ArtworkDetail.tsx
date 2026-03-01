@@ -7,14 +7,16 @@ import { useRouter } from 'next/navigation';
 import { useKeyboardShortcuts } from '@/lib/hooks/useKeyboardShortcuts';
 import ImageUpload from '@/components/ImageUpload';
 import type { Artwork } from '@/lib/db';
+import type { Era } from '@/lib/eras';
 
 interface ArtworkDetailProps {
   artwork: Artwork;
   prevArtwork: Artwork | null;
   nextArtwork: Artwork | null;
+  era?: Era;
 }
 
-export default function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: ArtworkDetailProps) {
+export default function ArtworkDetail({ artwork, prevArtwork, nextArtwork, era }: ArtworkDetailProps) {
   const router = useRouter();
   const [localImagePath, setLocalImagePath] = useState(artwork.imagePath);
 
@@ -163,6 +165,29 @@ export default function ArtworkDetail({ artwork, prevArtwork, nextArtwork }: Art
                 </a>
               )}
             </div>
+
+            {/* Era Context Badge */}
+            {era && (
+              <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                  📜 This work is from the{' '}
+                  <Link
+                    href={`/timeline/${era.slug}`}
+                    className="font-semibold text-accent-ochre hover:underline"
+                  >
+                    {era.name}
+                  </Link>
+                  {' '}
+                  ({era.startYear < 0 ? `${Math.abs(era.startYear)} BCE` : era.startYear} - {era.endYear < 0 ? `${Math.abs(era.endYear)} BCE` : era.endYear})
+                </p>
+                <Link
+                  href={`/timeline/${era.slug}`}
+                  className="text-sm text-accent-ochre hover:underline inline-flex items-center gap-1"
+                >
+                  Learn about this era →
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 

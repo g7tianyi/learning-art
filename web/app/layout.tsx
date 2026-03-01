@@ -72,6 +72,15 @@ export default function RootLayout({
                     </li>
                     <li>
                       <Link
+                        href="/timeline"
+                        className="transition-gentle hover:text-accent-ochre focus-ring"
+                        aria-label="Explore artworks by historical era"
+                      >
+                        Timeline
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
                         href="/review"
                         className="transition-gentle hover:text-accent-ochre focus-ring"
                         aria-label="Review artworks due today"

@@ -1,4 +1,5 @@
 import { getArtworkById, getAllArtworks } from '@/lib/db';
+import { getAllEras, getEraForArtwork } from '@/lib/eras';
 import { notFound } from 'next/navigation';
 import ArtworkDetail from '@/components/ArtworkDetail';
 
@@ -23,5 +24,16 @@ export default async function ArtworkDetailPage({ params }: { params: Promise<{ 
   const prevArtwork = currentIndex > 0 ? allArtworks[currentIndex - 1] : null;
   const nextArtwork = currentIndex < allArtworks.length - 1 ? allArtworks[currentIndex + 1] : null;
 
-  return <ArtworkDetail artwork={artwork} prevArtwork={prevArtwork} nextArtwork={nextArtwork} />;
+  // Get artwork's era
+  const eras = getAllEras();
+  const era = getEraForArtwork(artwork, eras);
+
+  return (
+    <ArtworkDetail
+      artwork={artwork}
+      prevArtwork={prevArtwork}
+      nextArtwork={nextArtwork}
+      era={era || undefined}
+    />
+  );
 }
